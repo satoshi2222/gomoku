@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>五目並べ</title>
+</head>
+<body>
+
+<div id="wrap">
+    <div id="title">五目並べ(○×)<br/>PvP</div>
+    <div id= "now">先攻〇のターン</div>
+    <div id="game-warp">
+        <div id="end" class="game"></div>
+        <div id="result" class="game">結果</div>
+        <!-- エメット(input[type="button"].button#c$)*9 -->
+        <div id="board">
+            <input type="button" class="button" id="c0" >
+            <input type="button" class="button" id="c1" />
+            <input type="button" class="button" id="c2" />
+            <input type="button" class="button" id="c3" />
+            <input type="button" class="button" id="c4" />
+            <input type="button" class="button" id="c5" />
+            <input type="button" class="button" id="c6" />
+            <input type="button" class="button" id="c7" />
+            <input type="button" class="button" id="c8" />
+            <input type="button" class="button" id="c9" /><br />
+            <input type="button" class="button" id="c10" />
+            <input type="button" class="button" id="c11" />
+            <input type="button" class="button" id="c12" />
+            <input type="button" class="button" id="c13" />
+            <input type="button" class="button" id="c14" />
+            <input type="button" class="button" id="c15" />
+            <input type="button" class="button" id="c16" />
+            <input type="button" class="button" id="c17" />
+            <input type="button" class="button" id="c18" />
+            <input type="button" class="button" id="c19" /><br />
+            <input type="button" class="button" id="c20" />
+            <input type="button" class="button" id="c21" />
+            <input type="button" class="button" id="c22" />
+            <input type="button" class="button" id="c23" />
+            <input type="button" class="button" id="c24" />
+            <input type="button" class="button" id="c25" />
+            <input type="button" class="button" id="c26" />
+            <input type="button" class="button" id="c27" />
+            <input type="button" class="button" id="c28" />
+            <input type="button" class="button" id="c29" /><br />
+            <input type="button" class="button" id="c30" />
+            <input type="button" class="button" id="c31" />
+            <input type="button" class="button" id="c32" />
+            <input type="button" class="button" id="c33" />
+            <input type="button" class="button" id="c34" />
+            <input type="button" class="button" id="c35" />
+            <input type="button" class="button" id="c36" />
+            <input type="button" class="button" id="c37" />
+            <input type="button" class="button" id="c38" />
+            <input type="button" class="button" id="c39" /><br />
+            <input type="button" class="button" id="c40" />
+            <input type="button" class="button" id="c41" />
+            <input type="button" class="button" id="c42" />
+            <input type="button" class="button" id="c43" />
+            <input type="button" class="button" id="c44" />
+            <input type="button" class="button" id="c45" />
+            <input type="button" class="button" id="c46" />
+            <input type="button" class="button" id="c47" />
+            <input type="button" class="button" id="c48" />
+            <input type="button" class="button" id="c49" /><br />
+            <input type="button" class="button" id="c50" />
+            <input type="button" class="button" id="c51" />
+            <input type="button" class="button" id="c52" />
+            <input type="button" class="button" id="c53" />
+            <input type="button" class="button" id="c54" />
+            <input type="button" class="button" id="c55" />
+            <input type="button" class="button" id="c56" />
+            <input type="button" class="button" id="c57" />
+            <input type="button" class="button" id="c58" />
+            <input type="button" class="button" id="c59" /><br />
+            <input type="button" class="button" id="c60" />
+            <input type="button" class="button" id="c61" />
+            <input type="button" class="button" id="c62" />
+            <input type="button" class="button" id="c63" />
+            <input type="button" class="button" id="c64" />
+            <input type="button" class="button" id="c65" />
+            <input type="button" class="button" id="c66" />
+            <input type="button" class="button" id="c67" />
+            <input type="button" class="button" id="c68" />
+            <input type="button" class="button" id="c69" /><br />
+            <input type="button" class="button" id="c70" />
+            <input type="button" class="button" id="c71" />
+            <input type="button" class="button" id="c72" />
+            <input type="button" class="button" id="c73" />
+            <input type="button" class="button" id="c74" />
+            <input type="button" class="button" id="c75" />
+            <input type="button" class="button" id="c76" />
+            <input type="button" class="button" id="c77" />
+            <input type="button" class="button" id="c78" />
+            <input type="button" class="button" id="c79" /><br />
+            <input type="button" class="button" id="c80" />
+            <input type="button" class="button" id="c81" />
+            <input type="button" class="button" id="c82" />
+            <input type="button" class="button" id="c83" />
+            <input type="button" class="button" id="c84" />
+            <input type="button" class="button" id="c85" />
+            <input type="button" class="button" id="c86" />
+            <input type="button" class="button" id="c87" />
+            <input type="button" class="button" id="c88" />
+            <input type="button" class="button" id="c89" /><br />
+            <input type="button" class="button" id="c90" />
+            <input type="button" class="button" id="c91" />
+            <input type="button" class="button" id="c92" />
+            <input type="button" class="button" id="c93" />
+            <input type="button" class="button" id="c94" />
+            <input type="button" class="button" id="c95" />
+            <input type="button" class="button" id="c96" />
+            <input type="button" class="button" id="c97" />
+            <input type="button" class="button" id="c98" />
+            <input type="button" class="button" id="c99" />
+        </div>
+    </div>
+   <div id="nn">
+       <div id="mm">
+            <input type="button"  value="やり直す" onclick="loading()" id="reload"class="game">
+       </div>
+    </div>
+</div>
+
+<!-- ///////////////////////////////////////////////////////javascript////////////////////////////////////////////// -->
+    <script>
+        //設定
+        var $ = new Array();
+        var draw = 0;//引き分け判定
+        var maru = '〇';
+        var batu = '✖';
+        var turn = 0;
+        var end = document.getElementById("end");//終了後表示
+        var result = document.getElementById("result");//終了後表示
+        var text = document.getElementById("result");//終了後表示
+        var now = document.getElementById("now");//どちらのターンか
+        //function
+        function loading(){
+        location.reload();
+        }
+        function victory(){
+                now.textContent = "終了"
+                result.style.display="block";
+                end.style.display="block";
+                reload.value = "もう一度";
+        }
+        function firstV(){
+                draw + 1;                
+                victory();
+                text.textContent = "先攻の勝ち";
+                return;
+        }
+        function secondV(){
+                draw + 1;
+                victory();
+                text.textContent = "後攻の勝ち";
+                return; 
+        }
+        //設定終わり
+
+        //buttonを配列へ入れてidを全て取得
+        for(i=0; i < 100; ++i){
+            $[i] = document.getElementById('c' + i);
+            $[i].onclick = function(){
+                click(this);//clickという関数に格納
+                this.disabled = true;//クリックは一度だけ
+                
+            }
+        //判定のfunction
+        function juge(){
+            //斜め判定
+            for(j=0; j<56; j=j+10){
+                for(i=0; i<6; ++i){
+                    if(
+                        $[0+i+j].value === maru && $[i+11+j].value === maru && $[i+22+j].value === maru &&
+                        $[i+33+j].value === maru && $[i+44+j].value === maru ||//右斜め判定
+                        $[9-i+j].value === maru && $[18-i+j].value === maru && $[27-i+j].value === maru &&
+                        $[36-i+j].value === maru && $[45-i+j].value === maru //左斜め判定
+                        
+                      ) 
+                    { firstV(); }
+                    if(
+                        $[0+i+j].value === batu && $[i+11+j].value === batu && $[i+22+j].value === batu &&
+                        $[i+33+j].value === batu && $[i+44+j].value === batu ||//右斜め判定
+                        $[9-i+j].value === batu && $[18-i+j].value === batu && $[27-i+j].value === batu &&
+                        $[36-i+j].value === batu && $[45-i+j].value === batu //左斜め判定
+                        
+                      ) 
+                    { secondV(); }
+                }
+                }
+            //横判定
+            for(j=0; j<100; j=j+10){
+                for(i=0; i<6; ++i){
+                    if(
+                        $[i+j].value === maru && $[i+1+j].value === maru && $[i+2+j].value === maru &&
+                        $[i+3+j].value === maru && $[i+4+j].value === maru //横判定
+                        
+                      ) 
+                      { firstV(); }
+                    if(
+                        $[i+j].value === batu && $[i+1+j].value === batu && $[i+2+j].value === batu &&
+                        $[i+3+j].value === batu && $[i+4+j].value === batu//横判定
+                    )
+                     { secondV(); }
+                    }
+                }
+            
+            //縦判定
+            for(j=0; j<60; j=j+10){
+                for(i=0; i<10; ++i){
+                    if(
+                        $[i+j].value === maru && $[i+10+j].value === maru && $[i+20+j].value === maru &&
+                        $[i+30+j].value === maru && $[i+40+j].value === maru //縦判定
+                      )
+                      { firstV(); }
+                    if(
+                        $[i+j].value === batu && $[i+10+j].value === batu && $[i+20+j].value === batu &&
+                        $[i+30+j].value === batu && $[i+40+j].value === batu //縦判定
+                      )
+                      { secondV(); }
+                    }
+                }    
+        }
+        //ボタンマルバツfunction
+            function click(button){
+                if(turn % 2 === 0){
+                    button.value = maru;
+                    now.textContent = "後攻✖のターン"
+                }else{
+                    button.value = batu;
+                    now.textContent = "先攻〇のターン"
+                }
+                if(turn === 0){
+                    now.textContent = "終了"
+                }
+                console.log(button);
+                turn++;
+                juge();
+                //最後に引き分け判定
+                if(turn === 100 && draw === 0){
+                victory();
+                text.textContent = "引き分け";
+                return;  
+                }
+            }
+        }
+    </script>
+
+<!--//////////////////////////////////////////////// css ////////////////////////////////////////////////////////////-->
+<style>
+        body{
+            font-family:"Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+            font-weight:bold;
+        }
+        #title{
+            letter-spacing:0.2em;
+            font-size:30px;
+            margin-top:10px;
+            margin-bottom:20px;
+        }
+        #now{
+            font-size:22px;
+        }
+        .button {
+            color:#ffffff;
+            vertical-align:middle;
+            font-size:40px;
+            width:60px;
+            height:60px;
+            background-color:rgb(64, 170, 81);
+            cursor : pointer;
+            }
+            .button:hover{
+                opacity:0.9;
+            }
+        #wrap{
+            margin-top:1%;
+            text-align:center;  
+        }
+        #game-warp{
+            margin:0 auto;
+            width:700px;
+            position:relative;
+        }
+        #end{
+            display:none;
+            position:absolute;
+            margin:0 auto;
+            width:640px;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index:200;
+            text-align:center;
+            background-color:rgba(101, 101, 102, 0.8);
+        }
+        #result{
+            text-shadow: 1px 1px 0 rgb(255, 255, 255);
+            font-size:60px;
+            color:rgb(255, 80, 80);
+            display:none;
+            position: absolute;
+            z-index:200;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        #nn{
+    
+        }
+        #reload{
+            font-weight:bold;
+            letter-spacing:.3em;
+            font-family: 'Roboto', sans-serif;
+            margin-top:50px;
+            margin-bottom:100px;
+            padding:15px 40px 15px 40px;
+            font-size:20px;
+            text-decoration: none;
+            background: #668ad8;/*ボタン色*/
+            color: #FFF;
+            border-bottom: solid 4px #627295;
+            border-radius: 3px;
+            cursor : pointer;
+            -webkit-transition: all .1s;
+            transition: all .1s;
+    
+        }
+        #reload:hover{
+            -webkit-transition: all .3s;
+            transition: all .3s;
+            -ms-transform: translateY(4px);
+            -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+            border-bottom: none;
+        }
+        #nn{
+            text-align:center;
+            margin:0 auto;
+            width:250px;
+        }
+        #mm{
+            display:inline-block;
+        }
+        
+    </style>
+</body>
+</html>
