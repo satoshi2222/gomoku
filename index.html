@@ -9,7 +9,9 @@
 <body>
 
 <div id="wrap">
-    <div id="title">五目並べ(○×)<br/>PvP</div>
+    <div id="center">
+        <div id="title">五目並べ(○×)<br/>PvP</div>
+    </div>
     <div id= "now">先攻〇のターン</div>
     <div id="game-warp">
         <div id="end" class="game"></div>
@@ -253,6 +255,7 @@
             font-family:"Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
             font-weight:bold;
         }
+
         #title{
             letter-spacing:0.1em;
             font-size:30px;
@@ -307,9 +310,13 @@
             left: 50%;
             -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-        }
+        }        
         #nn{
-    
+            width:1500px;
+
+        }
+        #mm{
+
         }
         #reload{
             font-weight:bold;
@@ -344,6 +351,40 @@
         }
         #mm{
             display:inline-block;
+        }
+        @media screen and (max-width: 801px) {
+            #center{
+                    width:500px;
+                    margin:0 auto;
+                    text-align:center;
+        }
+            #now{
+                margin:0 auto;
+                width:500px;
+            }
+            #game-warp{
+                    margin:0 auto;
+                    width:500px;
+                    position:relative;
+        }
+            .button{
+                    font-size:28px;
+                    width:40px;
+                    height:40px;
+            }
+            #end{
+                width:440px;
+            }
+            #result{
+                font-size:40px;
+            }
+            #nn{
+                width:500px;
+            }
+            #reload{
+                margin-top:20px;
+                font-size:16px;
+            }            
         }
         
     </style>
