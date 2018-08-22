@@ -10,17 +10,17 @@
 
 <div id="wrap">
     <div id="center">
-        <div id="title">五目並べ(○×)<br/>PvP
-            <a  id="link"href="cpu.html">PvCPUへ</a>
+        <div id="title">五目並べ(○×)<br/>P v CPU
+        <a  id="link"href="index.html">PvPへ</a>
         </div>
     </div>
-    <div id= "now">先攻〇のターン</div>
+    <div id= "now">Easy  禁則なし</div>
     <div id="game-warp">
         <div id="end" class="game"></div>
         <div id="result" class="game">結果</div>
         <!-- エメット(input[type="button"].button#c$)*9 -->
         <div id="board">
-            <input type="button" class="button" id="c0" >
+            <input type="button" class="button" id="c0" />
             <input type="button" class="button" id="c1" />
             <input type="button" class="button" id="c2" />
             <input type="button" class="button" id="c3" />
@@ -119,7 +119,7 @@
             <input type="button" class="button" id="c96" />
             <input type="button" class="button" id="c97" />
             <input type="button" class="button" id="c98" />
-            <input type="button" class="button" id="c99" />
+            <input type="button" onclick="getId(this);" class="button" id="c99" />
         </div>
     </div>
    <div id="nn">
@@ -128,7 +128,6 @@
        </div>
     </div>
 </div>
-
 <!-- ///////////////////////////////////////////////////////javascript////////////////////////////////////////////// -->
     <script>
         //設定
@@ -137,6 +136,7 @@
         var maru = '〇';
         var batu = '✖';
         var turn = 0;
+        var ellen = 0;
         var end = document.getElementById("end");//終了後表示
         var result = document.getElementById("result");//終了後表示
         var text = document.getElementById("result");//終了後表示
@@ -162,17 +162,153 @@
                 victory();
                 text.textContent = "後攻の勝ち";
                 return; 
+        function easy(){
+            if( $[num+1].value === ""
+                      ){
+                        $[num+1].value = batu
+                        $[num+1].disabled = true;
+                        console.log($[num])
+                      }
+                      else if($[num-1].value === ""){
+                        $[num-1].value = batu
+                        $[num-1].disabled = true;
+                      }
+                      else if($[num+10].value === ""){
+                        $[num+10].value = batu
+                        $[num+10].disabled = true;
+                      }
+                      else if($[num-10].value === ""){
+                        $[num-10].value = batu
+                        $[num-10].disabled = true;
+                      }
+                      else if($[num-9].value === ""){
+                        $[num-9].value = batu
+                        $[num-9].disabled = true;
+                      }
+                      else if($[num+9].value === ""){
+                        $[num+9].value = batu
+                        $[num+9].disabled = true;
+                      }
+
+        }
         }
         //設定終わり
-
         //buttonを配列へ入れてidを全て取得
         for(i=0; i < 100; ++i){
             $[i] = document.getElementById('c' + i);
             $[i].onclick = function(){
+                this.disabled = true;
                 click(this);//clickという関数に格納
-                this.disabled = true;//クリックは一度だけ
+                var cid =  this.id;
+                var id = cid.slice(1);
+                var num = Number(id)
+                //1列目
                 
+                for(i=0; i<10; ++i){
+                if(num == i && $[num+1].value == ""){
+                    $[num+1].value = batu;
+                    $[num+1].disabled = true;
+                }
+                else if(num == i && $[num-1].value == ""){
+                    $[num-1].value = batu;
+                    $[num-1].disabled = true;
+                }
+                //10列目
+                else if(num == i+90 && $[num+1].value == ""){
+                    $[num+1].value = batu;
+                    $[num+1].disabled = true;
+                }
+                else if(num == i+90 && $[num-1].value == ""){
+                    $[num-1].value = batu;
+                    $[num-1].disabled = true;
+                }
+                }
+                //斜め
+                if(num -10 >0 && $[num + 11].value === maru && $[num + 22].value === maru && $[num - 11].value === ""){
+                    $[num -11].value = batu;
+                    $[num -11].disabled = true;  
+                }
+                else if(num -10 >0 && $[num - 11].value === maru && $[num - 22].value === maru && $[num + 11].value === ""){
+                    $[num +11].value = batu;
+                    $[num +11].disabled = true;   
+                }
+                else if(num -10 >0 && $[num + 9].value === maru && $[num + 18].value === maru && $[num - 9].value === ""){
+                    $[num -9].value = batu
+                    $[num -9].disabled = true;  
+                }
+                else if(num -10 >0 && $[num - 9].value === maru && $[num - 18].value === maru && $[num + 9].value === ""){
+                    $[num +9].value = batu
+                    $[num +9].disabled = true;   
+                }
+                //斜め真ん中
+                else if(num -33 >0 &&$[num - 33].value === maru && $[num - 22].value === maru){
+                    $[num - 11].value = batu;
+                    $[num - 11].disabled = true;   
+                }
+                //横判定
+                else if($[num + 1].value === maru && $[num + 2].value === maru && $[num - 1].value === "" ){
+                    $[num - 1].value = batu;
+                    $[num - 1].disabled = true; 
+                }
+                else if($[num - 1].value === maru && $[num - 2].value === maru && $[num + 1].value === "") {
+                    $[num + 1].value = batu;
+                    $[num + 1].disabled = true;  
+                }
+                //縦判定
+                else if($[num + 10].value === maru && $[num + 20].value === maru && $[num - 10].value === ""){
+                    $[num - 10].value = batu;
+                    $[num - 10].disabled = true; 
+                }
+                else if($[num - 10].value === maru && $[num - 20].value === maru && $[num + 10].value === ""){
+                    $[num + 10].value = batu;
+                    $[num + 10].disabled = true;
+                }
+                //四面楚歌
+                else if($[num - 1].value != "" && $[num + 1].value != "" && $[num - 10].value != "" && $[num + 10].value != "" &&
+                        $[num - 11].value != "" &&$[num + 11].value != "" && $[num -9].value != "" && $[num + 9].value != ""){
+                            var random = Math.floor( Math.random() * 90 );
+                        $[num + random].value = batu;
+                        $[num + 1].disabled = true;
+                }
+                //色々判定
+                      else if($[num-1].value === ""){
+                        $[num-1].value = batu
+                        $[num-1].disabled = true;
+                      }
+                      else if($[num+1].value === ""){
+                        $[num+1].value = batu
+                        $[num+1].disabled = true;
+                      }
+                      else if($[num+10].value === ""){
+                        $[num+10].value = batu
+                        $[num+10].disabled = true;
+                      }
+                      else if($[num-10].value === ""){
+                        $[num-10].value = batu
+                        $[num-10].disabled = true;
+                      }
+                      else if($[num-9].value === ""){
+                        $[num-9].value = batu
+                        $[num-9].disabled = true;
+                      }
+                      else if($[num+9].value === ""){
+                        $[num+9].value = batu
+                        $[num+9].disabled = true;
+                      }
+                      else if($[num-11].value === ""){
+                        $[num-11].value = batu
+                        $[num-11].disabled = true;
+                      }
+                      else if($[num+11].value === ""){
+                        $[num+11].value = batu
+                        $[num+11].disabled = true;
+                      }
+
+                console.log(num)
+                }
+                this.disabled = true;//クリックは一度だけ
             }
+            
         //判定のfunction
         function juge(){
             //斜め判定
@@ -192,7 +328,7 @@
                         $[9-i+j].value === batu && $[18-i+j].value === batu && $[27-i+j].value === batu &&
                         $[36-i+j].value === batu && $[45-i+j].value === batu //左斜め判定
                         
-                      ) 
+                      )
                     { secondV(); }
                 }
                 }
@@ -202,7 +338,6 @@
                     if(
                         $[i+j].value === maru && $[i+1+j].value === maru && $[i+2+j].value === maru &&
                         $[i+3+j].value === maru && $[i+4+j].value === maru //横判定
-                        
                       ) 
                       { firstV(); }
                     if(
@@ -229,26 +364,24 @@
                     }
                 }    
         }
-        //ボタンマルバツ
+        //ボタンマルバツfunction
             function click(button){
-                if(turn % 2 === 0){
-                    button.value = maru;
-                    now.textContent = "後攻✖のターン"
-                }else{
-                    button.value = batu;
-                    now.textContent = "先攻〇のターン"
+                    if(button.value === batu || button.value === maru){
+                        button.disabled = true;
+                    }
+                    else{
+                        button.value = maru;
+                    }
+                    turn++;
+                    juge();
+                    //最後に引き分け判定
+                    if(turn === 40 && draw === 0){
+                    victory();
+                    text.textContent = "引き分け　強制終了";
+                    return;  
+                    }
                 }
-                console.log(button);
-                turn++;
-                juge();
-                //最後に引き分け判定
-                if(turn === 100 && draw === 0){
-                victory();
-                text.textContent = "引き分け";
-                return;  
-                }
-            }
-        }
+
     </script>
 
 <!--//////////////////////////////////////////////// css ////////////////////////////////////////////////////////////-->
@@ -257,6 +390,7 @@
             font-family:"Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
             font-weight:bold;
         }
+
         #title{
             position:relative;
             letter-spacing:0.1em;
@@ -323,6 +457,9 @@
             width:1500px;
 
         }
+        #mm{
+
+        }
         #reload{
             font-weight:bold;
             letter-spacing:.3em;
@@ -373,12 +510,12 @@
                     position:relative;
         }
             .button{
-                    font-size:25px;
+                    font-size:28px;
                     width:40px;
                     height:40px;
             }
             #end{
-                width:438px;
+                width:440px;
             }
             #result{
                 font-size:40px;
