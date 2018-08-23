@@ -162,35 +162,6 @@
                 victory();
                 text.textContent = "後攻の勝ち";
                 return; 
-        function easy(){
-            if( $[num+1].value === ""
-                      ){
-                        $[num+1].value = batu
-                        $[num+1].disabled = true;
-                        console.log($[num])
-                      }
-                      else if($[num-1].value === ""){
-                        $[num-1].value = batu
-                        $[num-1].disabled = true;
-                      }
-                      else if($[num+10].value === ""){
-                        $[num+10].value = batu
-                        $[num+10].disabled = true;
-                      }
-                      else if($[num-10].value === ""){
-                        $[num-10].value = batu
-                        $[num-10].disabled = true;
-                      }
-                      else if($[num-9].value === ""){
-                        $[num-9].value = batu
-                        $[num-9].disabled = true;
-                      }
-                      else if($[num+9].value === ""){
-                        $[num+9].value = batu
-                        $[num+9].disabled = true;
-                      }
-
-        }
         }
         //設定終わり
         //buttonを配列へ入れてidを全て取得
@@ -202,104 +173,105 @@
                 var cid =  this.id;
                 var id = cid.slice(1);
                 var num = Number(id)
-                //1列目
-                
-                for(i=0; i<10; ++i){
-                if(num == i && $[num+1].value == ""){
-                    $[num+1].value = batu;
-                    $[num+1].disabled = true;
-                }
-                else if(num == i && $[num-1].value == ""){
-                    $[num-1].value = batu;
-                    $[num-1].disabled = true;
-                }
-                //10列目
-                else if(num == i+90 && $[num+1].value == ""){
-                    $[num+1].value = batu;
-                    $[num+1].disabled = true;
-                }
-                else if(num == i+90 && $[num-1].value == ""){
-                    $[num-1].value = batu;
-                    $[num-1].disabled = true;
-                }
-                }
                 //斜め
-                if(num -10 >0 && $[num + 11].value === maru && $[num + 22].value === maru && $[num - 11].value === ""){
+                if(num + 22 <100 && num -11 >0 && $[num + 11].value === maru && $[num + 22].value === maru && $[num - 11].value === ""){
                     $[num -11].value = batu;
                     $[num -11].disabled = true;  
                 }
-                else if(num -10 >0 && $[num - 11].value === maru && $[num - 22].value === maru && $[num + 11].value === ""){
+                else if(num + 11 <100 && num -22 >0 && $[num - 11].value === maru && $[num - 22].value === maru && $[num + 11].value === ""){
                     $[num +11].value = batu;
                     $[num +11].disabled = true;   
                 }
-                else if(num -10 >0 && $[num + 9].value === maru && $[num + 18].value === maru && $[num - 9].value === ""){
+                else if(num + 18 <100 && num -9 >0 && $[num + 9].value === maru && $[num + 18].value === maru && $[num - 9].value === ""){
                     $[num -9].value = batu
                     $[num -9].disabled = true;  
                 }
-                else if(num -10 >0 && $[num - 9].value === maru && $[num - 18].value === maru && $[num + 9].value === ""){
+                else if(num + 9 <100 && num -18 >0 && $[num - 9].value === maru && $[num - 18].value === maru && $[num + 9].value === ""){
                     $[num +9].value = batu
                     $[num +9].disabled = true;   
                 }
                 //斜め真ん中
-                else if(num -33 >0 &&$[num - 33].value === maru && $[num - 22].value === maru){
+                else if(num -33 >0 &&$[num - 33].value === maru && $[num - 22].value === maru && $[num - 11].value === ""){
                     $[num - 11].value = batu;
                     $[num - 11].disabled = true;   
                 }
+                else if(num + 33 <100 && $[num + 33].value === maru && $[num + 22].value === maru && $[num + 11].value === ""){
+                    $[num + 11].value = batu;
+                    $[num + 11].disabled = true;   
+                }
+                else if(num -27 >0 &&$[num - 27].value === maru && $[num - 18].value === maru&& $[num - 9].value === ""){
+                    $[num - 9].value = batu;
+                    $[num - 9].disabled = true;   
+                }
+                else if(num + 27 <100 &&$[num + 27].value === maru && $[num + 18].value === maru && $[num + 9].value === ""){
+                    $[num + 9].value = batu;
+                    $[num + 9].disabled = true;   
+                }
+                //縦真ん中
+                else if(num -30 >0 &&$[num - 30].value === maru && $[num - 20].value === maru && $[num - 10].value === ""){
+                    $[num - 10].value = batu;
+                    $[num - 10].disabled = true;   
+                }
+                else if(num + 30 <100 &&$[num + 30].value === maru && $[num + 20].value === maru && $[num + 10].value === ""){
+                    $[num + 10].value = batu;
+                    $[num + 10].disabled = true;   
+                }
+                
                 //横判定
-                else if($[num + 1].value === maru && $[num + 2].value === maru && $[num - 1].value === "" ){
+                else if(num + 2 <100 && $[num + 1].value === maru && $[num + 2].value === maru && $[num - 1].value === "" ){
                     $[num - 1].value = batu;
                     $[num - 1].disabled = true; 
                 }
-                else if($[num - 1].value === maru && $[num - 2].value === maru && $[num + 1].value === "") {
+                else if(num -2 >0 && $[num - 1].value === maru && $[num - 2].value === maru && $[num + 1].value === "") {
                     $[num + 1].value = batu;
                     $[num + 1].disabled = true;  
                 }
                 //縦判定
-                else if($[num + 10].value === maru && $[num + 20].value === maru && $[num - 10].value === ""){
+                else if(num + 20 <100 && num -10 >0 && $[num + 10].value === maru && $[num + 20].value === maru && $[num - 10].value === ""){
                     $[num - 10].value = batu;
                     $[num - 10].disabled = true; 
                 }
-                else if($[num - 10].value === maru && $[num - 20].value === maru && $[num + 10].value === ""){
+                else if(num - 20 >0 && num + 10 <100 && $[num - 10].value === maru && $[num - 20].value === maru && $[num + 10].value === ""){
                     $[num + 10].value = batu;
                     $[num + 10].disabled = true;
                 }
                 //四面楚歌
-                else if($[num - 1].value != "" && $[num + 1].value != "" && $[num - 10].value != "" && $[num + 10].value != "" &&
+                else if(num - 11 >0 && num + 11 <100 && $[num - 1].value != "" && $[num + 1].value != "" && $[num - 10].value != "" && $[num + 10].value != "" &&
                         $[num - 11].value != "" &&$[num + 11].value != "" && $[num -9].value != "" && $[num + 9].value != ""){
-                            var random = Math.floor( Math.random() * 90 );
+                            var random = Math.floor( Math.random() * 99 );
                         $[num + random].value = batu;
-                        $[num + 1].disabled = true;
+
                 }
                 //色々判定
-                      else if($[num-1].value === ""){
+                      else if(num - 1 >0  && $[num-1].value === ""){
                         $[num-1].value = batu
                         $[num-1].disabled = true;
                       }
-                      else if($[num+1].value === ""){
+                      else if(num + 1 <100 && $[num+1].value === ""){
                         $[num+1].value = batu
                         $[num+1].disabled = true;
                       }
-                      else if($[num+10].value === ""){
+                      else if(num + 10 <100 && $[num+10].value === ""){
                         $[num+10].value = batu
                         $[num+10].disabled = true;
                       }
-                      else if($[num-10].value === ""){
+                      else if(num - 10 >0  && $[num-10].value === ""){
                         $[num-10].value = batu
                         $[num-10].disabled = true;
                       }
-                      else if($[num-9].value === ""){
+                      else if(num - 9 >0  && $[num-9].value === ""){
                         $[num-9].value = batu
                         $[num-9].disabled = true;
                       }
-                      else if($[num+9].value === ""){
+                      else if(num + 9 <100 && $[num+9].value === ""){
                         $[num+9].value = batu
                         $[num+9].disabled = true;
                       }
-                      else if($[num-11].value === ""){
+                      else if(num - 11 >0  && $[num-11].value === ""){
                         $[num-11].value = batu
                         $[num-11].disabled = true;
                       }
-                      else if($[num+11].value === ""){
+                      else if(num + 11 <100 && $[num+11].value === ""){
                         $[num+11].value = batu
                         $[num+11].disabled = true;
                       }
@@ -455,9 +427,6 @@
         }        
         #nn{
             width:1500px;
-
-        }
-        #mm{
 
         }
         #reload{
