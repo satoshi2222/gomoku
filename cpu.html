@@ -172,7 +172,7 @@
                 click(this);//clickという関数に格納
                 var cid =  this.id;
                 var id = cid.slice(1);
-                var num = Number(id)
+                var num = Number(id);
                 //斜め
                 if(num + 22 <100 && num -11 >0 && $[num + 11].value === maru && $[num + 22].value === maru && $[num - 11].value === ""){
                     $[num -11].value = batu;
@@ -275,7 +275,7 @@
                         $[num+11].value = batu
                         $[num+11].disabled = true;
                       }
-
+                      juge();
                 console.log(num)
                 }
                 this.disabled = true;//クリックは一度だけ
