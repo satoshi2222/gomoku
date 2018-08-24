@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>五目並べ</title>
+    <script>
+        window.onload = function() {
+            var wrap = document.getElementById("wrap");
+            wrap.style.opacity = "1";
+            }
+    </script>
+    <style>
+        #wrap{opacity:0;}
+    </style>
 </head>
 <body>
 
@@ -141,6 +150,7 @@
         var result = document.getElementById("result");//終了後表示
         var text = document.getElementById("result");//終了後表示
         var now = document.getElementById("now");//どちらのターンか
+
         //function
         function loading(){
         location.reload();
@@ -173,7 +183,7 @@
                 var cid =  this.id;
                 var id = cid.slice(1);
                 var num = Number(id);
-                //斜め
+                //CPU斜め
                 if(num + 22 <100 && num -11 >0 && $[num + 11].value === maru && $[num + 22].value === maru && $[num - 11].value === ""){
                     $[num -11].value = batu;
                     $[num -11].disabled = true;  
@@ -190,7 +200,7 @@
                     $[num +9].value = batu
                     $[num +9].disabled = true;   
                 }
-                //斜め真ん中
+                //CPU斜め真ん中
                 else if(num -33 >0 &&$[num - 33].value === maru && $[num - 22].value === maru && $[num - 11].value === ""){
                     $[num - 11].value = batu;
                     $[num - 11].disabled = true;   
@@ -207,7 +217,7 @@
                     $[num + 9].value = batu;
                     $[num + 9].disabled = true;   
                 }
-                //縦真ん中
+                //CPU縦真ん中
                 else if(num -30 >0 &&$[num - 30].value === maru && $[num - 20].value === maru && $[num - 10].value === ""){
                     $[num - 10].value = batu;
                     $[num - 10].disabled = true;   
@@ -217,7 +227,7 @@
                     $[num + 10].disabled = true;   
                 }
                 
-                //横判定
+                //CPU横
                 else if(num + 2 <100 && $[num + 1].value === maru && $[num + 2].value === maru && $[num - 1].value === "" ){
                     $[num - 1].value = batu;
                     $[num - 1].disabled = true; 
@@ -226,7 +236,7 @@
                     $[num + 1].value = batu;
                     $[num + 1].disabled = true;  
                 }
-                //縦判定
+                //CPU縦
                 else if(num + 20 <100 && num -10 >0 && $[num + 10].value === maru && $[num + 20].value === maru && $[num - 10].value === ""){
                     $[num - 10].value = batu;
                     $[num - 10].disabled = true; 
@@ -235,14 +245,14 @@
                     $[num + 10].value = batu;
                     $[num + 10].disabled = true;
                 }
-                //四面楚歌
+                //CPU四面楚歌
                 else if(num - 11 >0 && num + 11 <100 && $[num - 1].value != "" && $[num + 1].value != "" && $[num - 10].value != "" && $[num + 10].value != "" &&
                         $[num - 11].value != "" &&$[num + 11].value != "" && $[num -9].value != "" && $[num + 9].value != ""){
                             var random = Math.floor( Math.random() * 99 );
                         $[num + random].value = batu;
 
                 }
-                //色々判定
+                //CPU色々
                       else if(num - 1 >0  && $[num-1].value === ""){
                         $[num-1].value = batu
                         $[num-1].disabled = true;
@@ -293,7 +303,8 @@
                         $[36-i+j].value === maru && $[45-i+j].value === maru //左斜め判定
                         
                       ) 
-                    { firstV(); }
+                    { firstV();
+                    this.style.color = "red"; }
                     if(
                         $[0+i+j].value === batu && $[i+11+j].value === batu && $[i+22+j].value === batu &&
                         $[i+33+j].value === batu && $[i+44+j].value === batu ||//右斜め判定
@@ -311,7 +322,8 @@
                         $[i+j].value === maru && $[i+1+j].value === maru && $[i+2+j].value === maru &&
                         $[i+3+j].value === maru && $[i+4+j].value === maru //横判定
                       ) 
-                      { firstV(); }
+                      { firstV();
+                        this.style.color = "red"; }
                     if(
                         $[i+j].value === batu && $[i+1+j].value === batu && $[i+2+j].value === batu &&
                         $[i+3+j].value === batu && $[i+4+j].value === batu//横判定
@@ -327,7 +339,8 @@
                         $[i+j].value === maru && $[i+10+j].value === maru && $[i+20+j].value === maru &&
                         $[i+30+j].value === maru && $[i+40+j].value === maru //縦判定
                       )
-                      { firstV(); }
+                      { firstV();
+                        this.style.color = "red"; }
                     if(
                         $[i+j].value === batu && $[i+10+j].value === batu && $[i+20+j].value === batu &&
                         $[i+30+j].value === batu && $[i+40+j].value === batu //縦判定
